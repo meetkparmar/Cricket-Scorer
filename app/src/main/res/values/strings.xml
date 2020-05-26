@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Cricket Scorer</string>
-    <string name="title_home">Home</string>
+    <string name="title_play">Play</string>
     <string name="title_history">History</string>
+    <string name="teams">Teams</string>
+    <string name="team_a">Team A</string>
+    <string name="team_b">Team B</string>
+    <string name="toss_won_by">Toss Won By</string>
+    <string name="opted_to">Opted to?</string>
+    <string name="bat">Bat</string>
+    <string name="bowl">Bowl</string>
+    <string name="overs">Overs?</string>
+    <string name="default_over">10</string>
+    <string name="start_match">Start Match</string>
 </resources>

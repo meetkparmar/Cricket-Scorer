@@ -1,4 +1,4 @@
-package com.meetparmar.cricketscorer.ui.home
+package com.meetparmar.cricketscorer.ui.play
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,22 +10,22 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.meetparmar.cricketscorer.R
 
-class HomeFragment : Fragment() {
+class PlayFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var playViewModel: PlayViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        playViewModel =
+                ViewModelProviders.of(this).get(PlayViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_play, container, false)
+//        val textView: TextView = root.findViewById(R.id.)
+//        playViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
 }

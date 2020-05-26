@@ -1,10 +1,10 @@
-package com.meetparmar.cricketscorer.ui.home
+package com.meetparmar.cricketscorer.ui.play
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class PlayViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
