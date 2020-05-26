@@ -21,7 +21,7 @@ class PlayFragment : Fragment() {
     ): View? {
         playViewModel =
                 ViewModelProviders.of(this).get(PlayViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_play, container, false)
+        val root = inflater.inflate(R.layout.fragment_game_scorer, container, false)
 //        val textView: TextView = root.findViewById(R.id.)
 //        playViewModel.text.observe(viewLifecycleOwner, Observer {
 //            textView.text = it

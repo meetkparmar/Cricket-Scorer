@@ -5,4 +5,7 @@
     <dimen name="default_margin">8dp</dimen>
     <dimen name="default_padding">8dp</dimen>
     <dimen name="button_text_size">14sp</dimen>
+    <dimen name="team_text_size">18sp</dimen>
+    <dimen name="score_text_size">40sp</dimen>
+    <dimen name="over_text_size">32sp</dimen>
 </resources>
