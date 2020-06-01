@@ -5,7 +5,7 @@
     <string name="teams">Teams</string>
     <string name="team_a">Team A</string>
     <string name="team_b">Team B</string>
-    <string name="toss_won_by">Toss Won By</string>
+    <string name="batting">Batting</string>
     <string name="opted_to">Opted to?</string>
     <string name="bat">Bat</string>
     <string name="bowl">Bowl</string>
@@ -13,4 +13,5 @@
     <string name="default_over">10</string>
     <string name="start_match">Start Match</string>
     <string name="this_over">This Over</string>
+    <string name="date">Date</string>
 </resources>
