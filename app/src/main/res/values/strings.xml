@@ -14,4 +14,6 @@
     <string name="start_match">Start Match</string>
     <string name="this_over">This Over</string>
     <string name="date">Date</string>
+    <string name="quit">Quit</string>
+    <string name="clear">Clear</string>
 </resources>

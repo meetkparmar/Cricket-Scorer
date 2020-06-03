@@ -44,6 +44,7 @@ class PlayFragment : Fragment() {
         btn_start_match.setOnClickListener {
             if (et_team_a.text.isNullOrEmpty() || et_team_b.text.isNullOrEmpty()) {
                 Toast.makeText(context, "Please Enter Team Name", Toast.LENGTH_SHORT).show()
+
             } else {
                 val checkedRadioButtonId: Int = rg_batting.checkedRadioButtonId
                 val radioButton = view?.findViewById<RadioButton>(checkedRadioButtonId)

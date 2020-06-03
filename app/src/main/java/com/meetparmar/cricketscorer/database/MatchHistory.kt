@@ -13,26 +13,30 @@ data class MatchHistory(
     val date: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "team_a_name")
-    var team_a_name: String,
+    var teamA: String,
 
     @ColumnInfo(name = "team_b_name")
-    var team_b_name: String,
+    var teamB: String,
 
     @ColumnInfo(name = "team_a_score")
-    var team_a_score: Int = 0,
+    var teamAScore: Int = 0,
 
     @ColumnInfo(name = "team_b_score")
-    var team_b_score: Int = 0,
+    var teamBScore: Int = 0,
 
     @ColumnInfo(name = "team_a_wicket")
-    var team_a_wicket: Int = 0,
+    var teamAWickets: Int = 0,
 
     @ColumnInfo(name = "team_b_wicket")
-    var team_b_wicket: Int = 0,
+    var teamBWickets: Int = 0,
 
     @ColumnInfo(name = "team_a_overs")
-    var team_a_overs: Double = 0.0,
+    var teamAOvers: Double = 0.0,
 
     @ColumnInfo(name = "team_b_overs")
-    var team_b_overs: Double = 0.0
-)
+    var teamBOvers: Double = 0.0,
+
+    @ColumnInfo(name = "winning_team")
+    var teamWon: String
+
+    )
