@@ -49,7 +49,7 @@
             android:id="@+id/tv_team_a_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0/0(0.0)"
+            android:text="0-0(0.0)"
             android:textSize="@dimen/team_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_date" />
@@ -69,7 +69,7 @@
             android:id="@+id/tv_team_b_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0/0(0.0)"
+            android:text="0-0(0.0)"
             android:textSize="@dimen/team_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_team_a_score" />

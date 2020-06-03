@@ -14,21 +14,18 @@ abstract class HistoryDatabase : RoomDatabase() {
 
         @Volatile
         private var INSTANCE: HistoryDatabase? = null
+        private val lock = Any()
 
         fun getInstance(context: Context): HistoryDatabase {
-            synchronized(this) {
-                var instance = INSTANCE
-                if (instance == null) {
-                    instance = Room.databaseBuilder(
+            synchronized(lock) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        HistoryDatabase::class.java,
-                        "sleep_history_database"
+                        HistoryDatabase::class.java, "History.db"
                     )
-                        .fallbackToDestructiveMigration()
                         .build()
-                    INSTANCE = instance
                 }
-                return instance
+                return INSTANCE!!
             }
         }
     }
