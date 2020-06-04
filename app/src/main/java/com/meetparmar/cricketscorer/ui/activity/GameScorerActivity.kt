@@ -6,9 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.meetparmar.cricketscorer.R
+import com.meetparmar.cricketscorer.database.MatchHistory
 import kotlinx.android.synthetic.main.activity_game_scorer.*
 import kotlinx.android.synthetic.main.result_dialog.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class GameScorerActivity : AppCompatActivity() {
     lateinit var teamA: String
@@ -29,9 +34,14 @@ class GameScorerActivity : AppCompatActivity() {
     var thisOver = ArrayList<String>()
     private var needRun: Int = 0
     private var leftBalls: Int = 0
+    var date: String? = null
+    var teamWon: String? = null
+    var matchHistory: MatchHistory? = null
+    lateinit var viewModel: GameScorerViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel = ViewModelProviders.of(this).get(GameScorerViewModel::class.java)
         setContentView(R.layout.activity_game_scorer)
         teamA = intent.getStringExtra("teamA")!!
         teamB = intent.getStringExtra("teamB")!!
@@ -102,58 +112,58 @@ class GameScorerActivity : AppCompatActivity() {
     }
 
     private fun undoLastMove() {
-        if (batting == teamA){
+        if (batting == teamA) {
             when {
-                thisOver[thisOver.size-1] == "WD" -> {
-                    teamAScore-=1
-                    teamABall-=0
-                    setToWonView(-1,0)
+                thisOver[thisOver.size - 1] == "WD" -> {
+                    teamAScore -= 1
+                    teamABall -= 0
+                    setToWonView(-1, 0)
                 }
-                thisOver[thisOver.size-1] == "NB" -> {
-                    teamAScore-=0
-                    teamABall-=0
-                    setToWonView(0,0)
+                thisOver[thisOver.size - 1] == "NB" -> {
+                    teamAScore -= 0
+                    teamABall -= 0
+                    setToWonView(0, 0)
                 }
-                thisOver[thisOver.size-1] == "W" -> {
-                    teamAScore-=0
-                    teamABall-=1
-                    teamAWicket-=1
-                    balls-=1
-                    setToWonView(0,-1)
+                thisOver[thisOver.size - 1] == "W" -> {
+                    teamAScore -= 0
+                    teamABall -= 1
+                    teamAWicket -= 1
+                    balls -= 1
+                    setToWonView(0, -1)
                 }
                 else -> {
-                    teamAScore-=thisOver[thisOver.size-1].toInt()
-                    teamABall-=1
-                    balls-=1
-                    setToWonView(-(thisOver[thisOver.size-1].toInt()),-1)
+                    teamAScore -= thisOver[thisOver.size - 1].toInt()
+                    teamABall -= 1
+                    balls -= 1
+                    setToWonView(-(thisOver[thisOver.size - 1].toInt()), -1)
                 }
             }
             tv_batting_score.text = "$teamAScore - $teamAWicket"
             tv_bowling_score.text = "( $teamAOver.$teamABall )"
         } else if (batting == teamB) {
             when {
-                thisOver[thisOver.size-1] == "WD" -> {
-                    teamBScore-=1
-                    teamBBall-=0
-                    setToWonView(-1,0)
+                thisOver[thisOver.size - 1] == "WD" -> {
+                    teamBScore -= 1
+                    teamBBall -= 0
+                    setToWonView(-1, 0)
                 }
-                thisOver[thisOver.size-1] == "NB" -> {
-                    teamBScore-=0
-                    teamBBall-=0
-                    setToWonView(0,0)
+                thisOver[thisOver.size - 1] == "NB" -> {
+                    teamBScore -= 0
+                    teamBBall -= 0
+                    setToWonView(0, 0)
                 }
-                thisOver[thisOver.size-1] == "W" -> {
-                    teamBScore-=0
-                    teamBBall-=1
-                    teamBWicket-=1
-                    balls-=1
-                    setToWonView(0,-1)
+                thisOver[thisOver.size - 1] == "W" -> {
+                    teamBScore -= 0
+                    teamBBall -= 1
+                    teamBWicket -= 1
+                    balls -= 1
+                    setToWonView(0, -1)
                 }
                 else -> {
-                    teamBScore-=thisOver[thisOver.size-1].toInt()
-                    teamBBall-=1
-                    balls-=1
-                    setToWonView(-(thisOver[thisOver.size-1].toInt()),-1)
+                    teamBScore -= thisOver[thisOver.size - 1].toInt()
+                    teamBBall -= 1
+                    balls -= 1
+                    setToWonView(-(thisOver[thisOver.size - 1].toInt()), -1)
                 }
             }
             tv_batting_score.text = "$teamBScore - $teamBWicket"
@@ -225,13 +235,16 @@ class GameScorerActivity : AppCompatActivity() {
         when {
             teamAScore > teamBScore -> {
                 dialogView.result.text = "$teamA Won the Match"
+                teamWon = teamA
             }
             teamAScore == teamBScore -> {
                 dialogView.resultTrophy.setImageResource(R.drawable.ic_trophy_tie)
                 dialogView.result.text = "That was a tie!"
+                teamWon = "Tie"
             }
             else -> {
                 dialogView.result.text = "$teamB Won the Match"
+                teamWon = teamB
             }
         }
         alertDialog.setCancelable(false)
@@ -240,6 +253,31 @@ class GameScorerActivity : AppCompatActivity() {
             alertDialog.dismiss()
             finish()
         }
+        setDate()
+        setValuesForMatchHistory()
+    }
+
+    private fun setValuesForMatchHistory() {
+        val matchHistory = MatchHistory(
+            0,
+            date!!,
+            teamA,
+            teamB,
+            teamAScore,
+            teamBScore,
+            teamAWicket,
+            teamBWicket,
+            "( $teamAOver.$teamABall )",
+            "( $teamBOver.$teamBBall )",
+            teamWon!!
+        )
+        viewModel.insertMatchHistory(matchHistory)
+    }
+
+    private fun setDate() {
+        val sdf = SimpleDateFormat("dd/MM/yyyy")
+        val calander = Calendar.getInstance()
+        date = sdf.format(calander.time)
     }
 
     private fun changeInning(battingTeam: String) {

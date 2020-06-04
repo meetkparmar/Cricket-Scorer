@@ -10,7 +10,7 @@ data class MatchHistory(
     var id: Long = 0L,
 
     @ColumnInfo(name = "date")
-    val date: Long = System.currentTimeMillis(),
+    val date: String,
 
     @ColumnInfo(name = "team_a_name")
     var teamA: String,
@@ -31,10 +31,10 @@ data class MatchHistory(
     var teamBWickets: Int = 0,
 
     @ColumnInfo(name = "team_a_overs")
-    var teamAOvers: Double = 0.0,
+    var teamAOvers: String,
 
     @ColumnInfo(name = "team_b_overs")
-    var teamBOvers: Double = 0.0,
+    var teamBOvers: String,
 
     @ColumnInfo(name = "winning_team")
     var teamWon: String
