@@ -32,11 +32,11 @@ class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         teamAScore.text = "${matchHistory.teamAScore} - ${matchHistory.teamAWickets} (${matchHistory.teamAOvers})"
         teamBScore.text = "${matchHistory.teamBScore} - ${matchHistory.teamBWickets} (${matchHistory.teamBOvers})"
         if (matchHistory.teamWon == "Tie"){
-            result.text == "That was Tie"
+            result.text = "That was Tie"
         } else {
-            result.text == "${matchHistory.teamWon} Won The Match"
+            result.text = "${matchHistory.teamWon} Won The Match"
         }
-        date.text = matchHistory.date.toString()
+        date.text = matchHistory.date
     }
 
     companion object {

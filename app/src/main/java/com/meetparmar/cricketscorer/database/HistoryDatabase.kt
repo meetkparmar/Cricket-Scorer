@@ -22,8 +22,7 @@ abstract class HistoryDatabase : RoomDatabase() {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         HistoryDatabase::class.java, "History.db"
-                    )
-                        .build()
+                    ).build()
                 }
                 return INSTANCE!!
             }

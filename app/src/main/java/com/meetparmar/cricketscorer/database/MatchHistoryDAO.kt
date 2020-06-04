@@ -10,6 +10,5 @@ interface MatchHistoryDAO {
     fun insert(history: MatchHistory)
 
     @Query("SELECT * FROM cricket_match_history_table ORDER BY id DESC")
-    fun getAllMatches(): LiveData<List<MatchHistory>>
-
+    fun getAll(): List<MatchHistory>
 }

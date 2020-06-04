@@ -40,8 +40,8 @@ class HistoryFragment : Fragment() {
     private fun initAdapter() {
         rv_history.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         rv_history.adapter = adapter
-        historyViewModel.matchHistory().observe(this.viewLifecycleOwner, matchHistoryObserver)
         historyViewModel.fetchAllMatchHistory()
+        historyViewModel.matchHistory().observe(this.viewLifecycleOwner, matchHistoryObserver)
     }
      private val matchHistoryObserver = Observer<List<MatchHistory>> {
          if (it == null || it.isEmpty()){

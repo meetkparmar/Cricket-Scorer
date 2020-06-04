@@ -10,7 +10,7 @@ class HistoryRepository(val database: HistoryDatabase) {
         database.matchHistoryDAO.insert(history)
     }
 
-    fun getMatchHistory(): LiveData<List<MatchHistory>> {
-        return database.matchHistoryDAO.getAllMatches()
+    fun getMatchHistory(): List<MatchHistory> {
+        return database.matchHistoryDAO.getAll()
     }
 }

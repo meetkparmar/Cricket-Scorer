@@ -28,7 +28,7 @@ class HistoryViewModel(context: Application) : AndroidViewModel(context) {
     fun fetchAllMatchHistory() {
         scope.launch {
             withContext(Dispatchers.IO) {
-                historyList.postValue(repository.getMatchHistory().value)
+                historyList.postValue(repository.getMatchHistory())
             }
         }
     }

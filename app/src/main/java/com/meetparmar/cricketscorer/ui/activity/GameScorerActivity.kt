@@ -267,8 +267,8 @@ class GameScorerActivity : AppCompatActivity() {
             teamBScore,
             teamAWicket,
             teamBWicket,
-            "( $teamAOver.$teamABall )",
-            "( $teamBOver.$teamBBall )",
+            "$teamAOver.$teamABall",
+            "$teamBOver.$teamBBall",
             teamWon!!
         )
         viewModel.insertMatchHistory(matchHistory)
