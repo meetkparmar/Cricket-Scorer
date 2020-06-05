@@ -21,4 +21,4 @@
 
 **ScreenShots of App:**
 
-<img src = "images/Screen fragment_play.jpg" width="100" height="200" >
+<img src = "images/Screen fragment_play.jpg" width="300" height="600" >
