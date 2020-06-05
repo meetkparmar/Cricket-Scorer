@@ -38,6 +38,7 @@ class GameScorerActivity : AppCompatActivity() {
     var teamWon: String? = null
     var matchHistory: MatchHistory? = null
     lateinit var viewModel: GameScorerViewModel
+    var check : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -187,11 +188,15 @@ class GameScorerActivity : AppCompatActivity() {
                 setToWonView(run, ball)
                 if (teamAScore > teamBScore) {
                     openDialogBox()
+                    check = true
                 }
             }
             if (isFinish(teamA)) {
                 if (inning == 1) {
-                    openDialogBox()
+                    if (!check) {
+                        openDialogBox()
+                        check = false
+                    }
                 }
                 changeInning(teamA)
             }
@@ -208,11 +213,15 @@ class GameScorerActivity : AppCompatActivity() {
                 setToWonView(run, ball)
                 if (teamBScore > teamAScore) {
                     openDialogBox()
+                    check = true
                 }
             }
             if (isFinish(teamB)) {
                 if (inning == 1) {
-                    openDialogBox()
+                    if (!check) {
+                        openDialogBox()
+                        check = false
+                    }
                 }
                 changeInning(teamB)
             }
