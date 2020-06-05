@@ -21,4 +21,4 @@
 
 **ScreenShots of App:**
 
-![](images/Screen fragment_play.jpg)
+<img src = "images/Screen fragment_play.jpg">
