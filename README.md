@@ -20,5 +20,8 @@
 - View Model
 
 **ScreenShots of App:**
-
-<img src = "images/Screen fragment_play.jpg" width="300" height="600" >
+<p>
+  <img align="left" src = "images/Screen fragment_play.jpg" width="300" height="600" >
+  <img align="center" src = "images/Screen fragment_play.jpg" width="300" height="600" >
+  <img align="right" src = "images/Screen fragment_play.jpg" width="300" height="600" >
+</p>
