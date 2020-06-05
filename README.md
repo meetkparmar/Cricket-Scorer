@@ -21,7 +21,7 @@
 
 **ScreenShots of App:**
 <p>
-  <img align="left" src = "images/Screen fragment_play.jpg" width="300" height="600" >
-  <img align="center" src = "images/Screen fragment_play.jpg" width="300" height="600" >
-  <img align="right" src = "images/Screen fragment_play.jpg" width="300" height="600" >
+  <img align="left" src = "images/Screen fragment_play.jpg" width="250" height="500" >
+  <img align="center" src = "images/Screen fragment_play.jpg" width="250" height="500" >
+  <img align="right" src = "images/Screen fragment_play.jpg" width="250" height="500" >
 </p>
